@@ -47,13 +47,6 @@
         label="Jenis Bayar"
       />
 
-      <!-- :model-value="dokter.kodeDokter" -->
-      <select>
-        <template v-for="poli in resData" :key="poli">
-          <option :value="poli.kode_poli">{{ poli.nama_dokter }}</option>
-        </template>
-      </select>
-
       <q-select
         :options="poli.namaPoli"
         v-model="poli.selectedPoli"
@@ -83,7 +76,7 @@
       /> -->
 
       <div>
-        <q-btn label="Simpan" @click="onSubmit" color="primary" />
+        <q-btn label="Simpan" type="submit" color="primary" />
         <q-btn
           label="Reset"
           type="reset"
@@ -171,7 +164,7 @@ export default {
       filterDokter,
 
       onSubmit() {
-          console.log(formModel.tglRegistrasi);
+        console.log(formModel.tglRegistrasi);
 
         axios
           .post("http://127.0.0.1:3333/patient/store", {
